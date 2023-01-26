@@ -1,7 +1,7 @@
 public class Rectangle extends Shape{
 
-    private double width;
-    private double height;
+    protected double width;
+    protected double height;
 
     public double getWidth() {
         return width;
@@ -12,7 +12,7 @@ public class Rectangle extends Shape{
     }
 
     public Rectangle(double width, double height) throws RectangleParameterException {
-        if (width <=0 || height <= 0) {
+        if ((width <=0 || height <= 0) && height != width) {
             throw new RectangleParameterException("Одна из сторон меньше или равна нулю.");
         }
         this.width = width;

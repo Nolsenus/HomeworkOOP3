@@ -44,12 +44,12 @@ public class Circle extends Shape {
                 throw new CircleParameterException("Радиус меньше или равен нулю.");
             }
         } else {
-            throw new CircleParameterException(String.format("Неизветный параметр: %s.", valueName));
+            throw new CircleParameterException(String.format("Неизвестный параметр: %s.", valueName));
         }
     }
 
     @Override
     public String getInfo() {
-        return String.format("Круг{Радиус: %f, %s}", radius, super.getInfo());
+        return String.format("Круг{Радиус: %f, Площадь: %f, Длина окружности(периметр): %f}", radius, area, perimeter);
     }
 }

@@ -1,32 +1,21 @@
-public class Square extends Shape {
-
-    private double sideLength;
+public class Square extends Rectangle {
 
     public double getSideLength() {
-        return sideLength;
+        return width;
     }
 
     public Square(double sideLength) throws SquareParameterException {
         if (sideLength <= 0) {
             throw new SquareParameterException("Сторона меньше или равна нулю.");
         }
-        this.sideLength = sideLength;
+        this.width = sideLength;
+        this.height = sideLength;
         updateAreaPerimeter();
     }
 
     public Square() {
-        this.sideLength = 1;
+        super();
         updateAreaPerimeter();
-    }
-
-    @Override
-    public double calculateArea() {
-        return sideLength * sideLength;
-    }
-
-    @Override
-    public double calculatePerimeter() {
-        return 4 * sideLength;
     }
 
     @Override
@@ -40,7 +29,8 @@ public class Square extends Shape {
             throw new SquareParameterException("Сторона меньше или равна нулю.");
         }
         if (valueName.equalsIgnoreCase("sidelength")) {
-            this.sideLength = value;
+            this.width = value;
+            this.height = value;
             updateAreaPerimeter();
         } else {
             throw new SquareParameterException(String.format("Неизвестный параметр: %s.", valueName));
@@ -49,6 +39,6 @@ public class Square extends Shape {
 
     @Override
     public String getInfo() {
-        return String.format("Квадрат{Сторона: %f, %s}", sideLength, super.getInfo());
+        return String.format("Квадрат{Сторона: %f, %s}", width, super.getInfo());
     }
 }
