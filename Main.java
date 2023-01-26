@@ -16,7 +16,13 @@ public class Main {
             System.out.println(e.getMessage());
         }
         for (Shape s : shapeArray) {
-            System.out.printf("Периметр: %f, Площадь: %f.%n", s.calculatePerimeter(), s.calculateArea());
+            String perimeter;
+            if (s instanceof Circle) {
+                perimeter = "Длина окружности";
+            } else {
+                perimeter = "Периметр";
+            }
+            System.out.printf("%s: %f, Площадь: %f.%n", perimeter, s.calculatePerimeter(), s.calculateArea());
         }
         ShapeList sl = new ShapeList(shapeArray);
         System.out.println();
